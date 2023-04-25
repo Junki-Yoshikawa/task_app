@@ -52,13 +52,13 @@ Field="名前","name","varchar(128)","NOT NULL",,"","",$FFFFFFFF,""
 Field="パスワード","password","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
 Field="管理者フラグ","is_admin","boolean",,,"false","",$FFFFFFFF,""
 Field="削除フラグ","is_delete","boolean",,,"false","",$FFFFFFFF,""
-Field="登録日時","created_timestamp","timestamp",,,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
-Field="更新日時","modified_timestamp","timestamp",,,"","",$FFFFFFFF,""
+Field="登録日時","created_timestamp","datetime",,,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+Field="更新日時","modified_timestamp","datetime",,,"","",$FFFFFFFF,""
 EffectMode=None
 Tag=master
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20230425223159
+ModifiedDateTime=20230425232045
 Position="MAIN",50,150
 ZOrder=1
 
