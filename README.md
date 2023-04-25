@@ -19,8 +19,10 @@ Things you may want to cover:
   2. Run "rails db:create" in the Terminal.
 
 * Database initialization
+  1. Run "rails db:migrate" in the Terminal.
 
 * How to run the test suite
+  1. Run "rails s" in the Terminal.
 
 * Services (job queues, cache servers, search engines, etc.)
 
