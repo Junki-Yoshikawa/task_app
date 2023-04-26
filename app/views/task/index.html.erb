@@ -1,0 +1,10 @@
+<h1>Task#index</h1>
+<p>Find me in app/views/task/index.html.erb</p>
+
+<p>
+<% @results.each do |r| %>
+[タイトル] <%= r.title %>, [説明] <%= r.discriptions %><br />
+<% end %>
+</p>
+
+<%= link_to "Back to posts", task_index_path %>
