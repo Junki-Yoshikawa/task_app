@@ -1,0 +1,26 @@
+<h1>タスク一覧</h1>
+<%= link_to new_task_path do %>
+  <button>新規作成</button>
+<% end %>
+<div>
+  <table style="width: 100%">
+    <thead>
+      <tr>
+      <th>#</th><th>登録日</th><th>タイトル</th><th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |r| %>
+      <tr>
+        <td><%= r.task_no %></td>
+        <td><%= l(r.created_at) %></td>
+        <td><%= r.title %></td>
+        <td>
+        <%= link_to "詳細", task_path(r.task_no) %>
+        <%= link_to "編集", edit_task_path(r.task_no) %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
