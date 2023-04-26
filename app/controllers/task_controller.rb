@@ -1,10 +1,11 @@
 class TaskController < ApplicationController
+  before_action :set_task, only: %i[ show edit update destroy ]
+
   def index
     @results = Task.all
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def new
@@ -19,15 +20,40 @@ class TaskController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_index_url, notice: "Task was successfully created." }
+        format.html { redirect_to task_index_url, notice: "タスクを作成しました。" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
 
-  def task_params
-    params.require(:task).permit(:title, :discriptions)
+  def edit
   end
+
+  def update
+    respond_to do |format|
+      if @task.update(task_params)
+        format.html { redirect_to task_index_url, notice: "タスクを更新しました。" }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @task.destroy
+    respond_to do |format|
+      format.html { redirect_to task_index_url, notice: "タスクを削除しました。" }
+    end
+  end
+
+  private 
+    def set_task
+      @task = Task.find(params[:id])
+    end
+
+    def task_params
+      params.require(:task).permit(:title, :discriptions)
+    end
     
 end

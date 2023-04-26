@@ -14,6 +14,38 @@
  *= require_self
  */
  td, th {
-    border: 2px #808080 solid;
-    padding: 1rem;
+  border: 2px #808080 solid;
+  padding: 1rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.w-no {
+  width: 50px;
+}
+
+.w-created-at {
+  width: 100px;
+}
+
+.w-button {
+  width: 150px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
