@@ -2,7 +2,7 @@ class TaskController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
 
   def index
-    @results = Task.order(:created_at)
+    @results = Task.order(created_at: :desc)
   end
 
   def show
@@ -53,7 +53,7 @@ class TaskController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :discriptions)
+      params.require(:task).permit(:title, :discriptions, :ended_at)
     end
     
 end

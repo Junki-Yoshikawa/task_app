@@ -5,8 +5,9 @@
     <thead>
       <tr>
       <th class="w-no">#</th>
-      <th class="w-created-at">登録日</th>
+      <th class="w-date">登録日</th>
       <th>タイトル</th>
+      <th class="w-date">終了期限</th>
       <th class="w-button">操作</th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
         <td class="text-center"><%= r.id %></td>
         <td><%= l(r.created_at) %></td>
         <td><%= link_to r.title, task_path(r.id) %></td>
+        <td class="text-center"><%= r.ended_at %></td>
         <td class="text-center">
         <div class="btn-group">
           <%= button_to '編集', edit_task_path(r.id), method: :get %>
