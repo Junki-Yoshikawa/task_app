@@ -22,6 +22,6 @@ module TaskApp
     config.active_record.default_timezone = :local
     config.i18n.default_locale = :ja
 
-    config.hosts << 'task-app.onrender.com'
+    config.hosts << 'task-app-kv09.onrender.com'
   end
 end
