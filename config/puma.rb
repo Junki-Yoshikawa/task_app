@@ -24,7 +24,6 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # Specifies the `pidfile` that Puma will use.
 pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
-if Rails.env.production?
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
@@ -39,8 +38,6 @@ workers ENV.fetch("WEB_CONCURRENCY") { 4 }
 # process behavior so workers use less memory.
 #
 preload_app!
-
-end
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
