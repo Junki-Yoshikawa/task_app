@@ -1,7 +1,7 @@
 databases:
   - name: pg
-    databaseName: 
-    user:
+    databaseName: railsdb_14v9
+    user: admin
     region: singapore
 
 services:
