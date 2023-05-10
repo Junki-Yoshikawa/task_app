@@ -13,13 +13,13 @@
     <tbody>
       <% @results.each do |r| %>
       <tr>
-        <td class="text-center"><%= r.task_no %></td>
+        <td class="text-center"><%= r.id %></td>
         <td><%= l(r.created_at) %></td>
-        <td><%= link_to r.title, task_path(r.task_no) %></td>
+        <td><%= link_to r.title, task_path(r.id) %></td>
         <td class="text-center">
         <div class="btn-group">
-          <%= button_to '編集', edit_task_path(r.task_no), method: :get %>
-          <%= button_to '削除', task_path(r.task_no), method: :delete %>
+          <%= button_to '編集', edit_task_path(r.id), method: :get %>
+          <%= button_to '削除', task_path(r.id), method: :delete %>
         </div>
         </td>
       </tr>

@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_153742) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_10_101658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "tasks", primary_key: "task_no", id: { comment: "タスクNo" }, force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.integer "user_id", null: false, comment: "ユーザーID"
     t.string "title", limit: 256, comment: "タスク名"
     t.text "discriptions", comment: "説明"
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_153742) do
     t.datetime "modified_at", comment: "更新日時"
   end
 
-  create_table "users", primary_key: "user_id", id: { type: :serial, comment: "ユーザーID" }, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name", limit: 128, null: false, comment: "名前"
     t.string "password", limit: 32, null: false, comment: "パスワード"
     t.boolean "is_admin", default: false, comment: "管理者フラグ"
