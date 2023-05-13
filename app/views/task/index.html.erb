@@ -1,9 +1,8 @@
 <h1>タスク一覧</h1>
 <%= button_to '新規作成', new_task_path, method: :get %>
 <div>
-  <%= search_form_for @q, url: search_task_index_path do |f| %>
-    <%= f.label :title, "タイトル" %>
-    <%= f.search_field :title_cont %>
+  <%= search_form_for @q, url: task_index_path do |f| %>
+    <%= f.search_field :title_cont, placeholder: 'タイトル' %>
     <%= f.submit "検索" %>
   <% end %>
   <table style="width: 100%">
@@ -12,6 +11,7 @@
       <th class="w-no">#</th>
       <th class="w-date">登録日</th>
       <th>タイトル</th>
+      <th class="w-status">ステータス</th>
       <th class="w-date">終了期限</th>
       <th class="w-button">操作</th>
       </tr>
@@ -22,6 +22,7 @@
         <td class="text-center"><%= r.id %></td>
         <td><%= l(r.created_at) %></td>
         <td><%= link_to r.title, task_path(r.id) %></td>
+        <td class="text-center"><%= r.status %></td>
         <td class="text-center"><%= r.ended_at %></td>
         <td class="text-center">
         <div class="btn-group">

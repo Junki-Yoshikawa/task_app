@@ -26,6 +26,11 @@
     <%= f.date_field :ended_at %>
   </div>
 
+  <div class="field">
+    <%= f.label :status, "ステータス", style: "display: block" %>
+    <%= f.select :status, Task.statuses.keys.map {|k| [I18n.t("enums.task.status.#{k}"), k]} %>
+  </div>
+
   <div class="actions">
     <%= f.submit "保存" %>
   </div>
