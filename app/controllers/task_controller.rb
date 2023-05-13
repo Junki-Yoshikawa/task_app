@@ -1,8 +1,13 @@
 class TaskController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_q, only: %i[ index search ]
 
   def index
     @results = Task.order(created_at: :desc)
+  end
+
+  def search
+    @results = @q.result
   end
 
   def show
@@ -50,6 +55,10 @@ class TaskController < ApplicationController
   private 
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def set_q
+      @q = Task.ransack(params[:q])
     end
 
     def task_params

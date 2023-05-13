@@ -71,3 +71,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# 2023/05/11 Add Ransack.
+gem "ransack"
