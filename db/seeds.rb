@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+status_r = Random.new
+30.times do |n|
+    Task.create(user_id: 0, title: "task#{n}", description: "説明#{n}", status: status_r.rand(3))
+end
