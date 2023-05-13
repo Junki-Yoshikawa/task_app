@@ -82,6 +82,10 @@ en:
             btn: 
               edit: Edit
               destroy: Delete
+        notice:
+          new: Task created.
+          edit: A task was updated.
+          destroy: Deleted a task.
       new: 
         title: New Task
         form:

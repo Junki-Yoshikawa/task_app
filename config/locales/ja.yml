@@ -51,6 +51,10 @@ ja:
             btn: 
               edit: 編集
               destroy: 削除
+        notice:
+          new: タスクを作成しました。
+          edit: タスクを更新しました。
+          destroy: タスクを削除しました。
       new: 
         title: タスク作成
         form:

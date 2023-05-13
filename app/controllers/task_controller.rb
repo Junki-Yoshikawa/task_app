@@ -22,7 +22,7 @@ class TaskController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_index_url, notice: "タスクを作成しました。" }
+        format.html { redirect_to task_index_url, notice: "new" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -35,7 +35,7 @@ class TaskController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_index_url, notice: "タスクを更新しました。" }
+        format.html { redirect_to task_index_url, notice: "edit" }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -45,7 +45,7 @@ class TaskController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to task_index_url, notice: "タスクを削除しました。" }
+      format.html { redirect_to task_index_url, notice: "destroy" }
     end
   end
 
