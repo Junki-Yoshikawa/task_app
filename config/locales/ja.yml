@@ -48,7 +48,7 @@ ja:
     attributes:
         task:
           title: タイトル
-          discriptions: 説明
+          description: 説明
   errors:
     format: "%{message}"
     messages: &errors_messages

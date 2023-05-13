@@ -15,7 +15,7 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-  1. Run query "CREATE USER task_user WITH PASSWORD 'AAAbbbCCC1234!' CREATEDB CREATEROLE;" in the PostgreSQL.
+  1. Run query "CREATE USER [TASK_APP_DATABASE_USERNAME] WITH PASSWORD '[TASK_APP_DATABASE_PASSWORD]' CREATEDB CREATEROLE;" in the PostgreSQL.
   2. Run "rails db:create" in the Terminal.
 
 * Database initialization
