@@ -30,6 +30,55 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ja:
+  labels:
+    task: 
+      index:
+        title: タスク一覧
+        btn:
+          new: 新規作成
+        search:
+          form:
+            title: タイトル
+            submit: 検索
+        results: 
+          header:
+            created_at: 登録日
+            title: タイトル
+            status: ステータス
+            ended_at: 終了期限
+            action: 操作
+          body:
+            btn: 
+              edit: 編集
+              destroy: 削除
+      new: 
+        title: タスク作成
+        form:
+          title: タイトル
+          description: 説明
+          ended_at: 終了期限
+          status: ステータス
+          submit: 保存
+          back: 戻る
+      show: 
+        title: タスク詳細
+        form:
+          title: タイトル
+          description: 説明
+          ended_at: 終了期限
+          status: ステータス
+        btn:
+          edit: 編集
+          back: 戻る
+      edit: 
+        title: タスク編集
+        form:
+          title: タイトル
+          description: 説明
+          ended_at: 終了期限
+          status: ステータス
+          submit: 保存
+          back: 戻る
   enums: 
     task:
       status:

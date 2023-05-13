@@ -1,4 +1,4 @@
-<h1>タスク編集</h1>
+<h1><%= ta_t("title") %></h1>
 <%= form_for @task, url: task_path do |f| %>
 
   <% if @task.errors.any? %>
@@ -12,29 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title, "タイトル", style: "display: block" %>
+    <%= f.label :title, ta_t("form.title"), style: "display: block" %>
     <%= f.text_field :title, reqired: true%>
   </div>
 
   <div class="field">
-    <%= f.label :description, "説明", style: "display: block" %>
+    <%= f.label :description, ta_t("form.description"), style: "display: block" %>
     <%= f.text_area  :description %>
   </div>
 
   <div class="field">
-    <%= f.label :ended_at, "終了期限", style: "display: block" %>
+    <%= f.label :ended_at, ta_t("form.ended_at"), style: "display: block" %>
     <%= f.date_field :ended_at %>
   </div>
 
   <div class="field">
-    <%= f.label :status, "ステータス", style: "display: block" %>
+    <%= f.label :status, ta_t("form.status"), style: "display: block" %>
     <%= f.select :status, Task.statuses.keys.map {|k| [I18n.t("enums.task.status.#{k}"), k]} %>
   </div>
 
   <div class="actions">
-    <%= f.submit "保存" %>
+    <%= f.submit ta_t("form.submit") %>
   </div>
 
 <% end %>
 
-<%= link_to "戻る", task_index_path %>
+<%= link_to ta_t("form.back"), task_index_path %>
