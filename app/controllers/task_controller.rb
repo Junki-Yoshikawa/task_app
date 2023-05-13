@@ -3,8 +3,7 @@ class TaskController < ApplicationController
   before_action :set_q, only: %i[ index ]
 
   def index
-    @q.sorts = "created_at desc" if @q.sorts.empty?
-    @results = @q.result(distinct: true)
+    @results = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
 
   def show

@@ -79,3 +79,6 @@ gem "ransack"
 
 # 2023/05/13 Add enum_help.
 gem "enum_help"
+
+# 2023/05/14 Add kaminari.
+gem 'kaminari'

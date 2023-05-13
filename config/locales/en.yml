@@ -133,3 +133,10 @@ en:
         task:
           title: Title
           description: Description
+  views:
+      pagination:
+        first: First
+        last: Last
+        previous: Prev
+        next: Next
+        truncate: ...
