@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :status, "ステータス", style: "display: block" %>
-    <%= f.text_field :status, readonly: true %>
+    <%= f.select :status, Task.statuses.keys.map {|k| [I18n.t("enums.task.status.#{k}"), k, disabled: true]} %>
   </div>
   
 <% end %>

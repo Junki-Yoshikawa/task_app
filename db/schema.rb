@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_005648) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_152945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id", null: false, comment: "ユーザーID"
     t.string "title", limit: 256, comment: "タスク名"
-    t.text "description", comment: "説明"
+    t.string "description", comment: "説明"
     t.datetime "created_at", comment: "登録日時"
     t.datetime "modified_at", comment: "更新日時"
     t.date "ended_at", comment: "終了日"
-    t.string "status", limit: 1, comment: "ステータス"
+    t.integer "status", limit: 2, comment: "ステータス"
   end
 
   create_table "users", force: :cascade do |t|

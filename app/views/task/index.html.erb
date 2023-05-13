@@ -22,7 +22,7 @@
         <td class="text-center"><%= r.id %></td>
         <td><%= l(r.created_at) %></td>
         <td><%= link_to r.title, task_path(r.id) %></td>
-        <td class="text-center"><%= r.status %></td>
+        <td class="text-center"><%= I18n.t("enums.task.status.#{r.status}") %></td>
         <td class="text-center"><%= r.ended_at %></td>
         <td class="text-center">
         <div class="btn-group">
