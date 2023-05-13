@@ -30,6 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ja:
+  enums: 
+    task:
+      status:
+        ready: 未着手
+        running: 着手
+        finished: 完了
   date:
   time:
     formats:

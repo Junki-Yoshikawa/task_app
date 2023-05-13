@@ -1,8 +1,10 @@
 class TaskController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_q, only: %i[ index ]
 
   def index
-    @results = Task.order(created_at: :desc)
+    @q.sorts = "created_at desc" if @q.sorts.empty?
+    @results = @q.result(distinct: true)
   end
 
   def show
@@ -52,8 +54,12 @@ class TaskController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    def set_q
+      @q = Task.ransack(params[:q])
+    end
+
     def task_params
-      params.require(:task).permit(:title, :description, :ended_at)
+      params.require(:task).permit(:title, :description, :ended_at, :status)
     end
     
 end
