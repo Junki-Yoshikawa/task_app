@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_005648) do
     t.text "description", comment: "説明"
     t.datetime "created_at", comment: "登録日時"
     t.datetime "modified_at", comment: "更新日時"
+    t.date "ended_at", comment: "終了日"
   end
 
   create_table "users", force: :cascade do |t|

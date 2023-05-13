@@ -3,12 +3,17 @@
 
   <div class="field">
     <%= f.label :title, "タイトル", style: "display: block" %>
-    <%= f.text_field :title, reqired: true, readonly: true%>
+    <%= f.text_field :title, reqired: true, readonly: true %>
   </div>
 
   <div class="field">
     <%= f.label :description, "説明", style: "display: block" %>
     <%= f.text_area  :description, readonly: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ended_at, "終了期限", style: "display: block" %>
+    <%= f.date_field :ended_at, readonly: true %>
   </div>
   
 <% end %>

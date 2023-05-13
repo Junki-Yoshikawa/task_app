@@ -21,6 +21,12 @@
     <%= f.text_area  :description %>
   </div>
 
+  <div class="field">
+    <%= f.label :ended_at, "終了期限", style: "display: block" %>
+    <%= f.date_field :ended_at %>
+  </div>
+  
+
   <div class="actions">
     <%= f.submit "保存" %>
   </div>
