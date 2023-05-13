@@ -10,8 +10,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   encoding: utf8
-  username: task_user
-  password: AAAbbbCCC1234!
+  username: 
+  password: 
   host: localhost
 
 development:
@@ -28,4 +28,13 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  host: <%= ENV["TASK_APP_HOST"] %>
+  database: <%= ENV["TASK_APP_DATABASE"] %>
+  username: <%= ENV["TASK_APP_DATABASE_USERNAME"] %>
+  password: <%= ENV["TASK_APP_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  charset: utf8
+  collation: utf8_general_ci
