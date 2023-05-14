@@ -82,3 +82,6 @@ gem "enum_help"
 
 # 2023/05/14 Add kaminari.
 gem 'kaminari'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+gem 'bootstrap', '~> 5.0.2'
+gem 'jquery-rails'

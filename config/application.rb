@@ -23,5 +23,7 @@ module TaskApp
     config.i18n.default_locale = :ja
 
     config.hosts << 'task-app-kv09.onrender.com'
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end
