@@ -86,7 +86,7 @@ en:
           new: Task created.
           edit: A task was updated.
           destroy: Deleted a task.
-      new: 
+      new: &new
         title: New Task
         form:
           title: Title
@@ -95,6 +95,8 @@ en:
           status: Status
           submit: Save
           back: Back
+      create:
+        <<: *new
       show: 
         title: Task Detail
         form:
@@ -105,7 +107,7 @@ en:
         btn:
           edit: Edit
           back: Back
-      edit: 
+      edit: &edit
         title: Task Edit
         form:
           title: Title
@@ -114,6 +116,8 @@ en:
           status: Status
           submit: Save
           back: Back
+      update:
+        <<: *edit
   enums: 
     task:
       status:
@@ -121,6 +125,10 @@ en:
         running: Running
         finished: Finished
   date:
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y/%m/%d(%a)'
+      short: ! '%m/%d'
   time:
     formats:
       default: ! '%Y/%m/%d'

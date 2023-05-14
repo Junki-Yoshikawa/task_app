@@ -55,7 +55,7 @@ ja:
           new: タスクを作成しました。
           edit: タスクを更新しました。
           destroy: タスクを削除しました。
-      new: 
+      new: &new
         title: タスク作成
         form:
           title: タイトル
@@ -64,6 +64,8 @@ ja:
           status: ステータス
           submit: 保存
           back: 戻る
+      create:
+        <<: *new
       show: 
         title: タスク詳細
         form:
@@ -74,7 +76,7 @@ ja:
         btn:
           edit: 編集
           back: 戻る
-      edit: 
+      edit: &edit
         title: タスク編集
         form:
           title: タイトル
@@ -83,6 +85,8 @@ ja:
           status: ステータス
           submit: 保存
           back: 戻る
+      update:
+        <<: *edit
   enums: 
     task:
       status:
@@ -90,6 +94,10 @@ ja:
         running: 着手
         finished: 完了
   date:
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y年%m月%d日(%a)'
+      short: ! '%m/%d'
   time:
     formats:
       default: ! '%Y/%m/%d'

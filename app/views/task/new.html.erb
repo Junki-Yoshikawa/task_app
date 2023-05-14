@@ -1,5 +1,5 @@
-<h1><%= ta_t("title") %></h1>
-<%= form_for @task, url: task_index_path do |f| %>
+<p class="h1"><%= ta_t("title") %></p>
+<%= form_for @task, url: task_index_path, html: {class: "row"} do |f| %>
 
   <% if @task.errors.any? %>
     <div style="color: red">
@@ -11,30 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title, ta_t("form.title"), style: "display: block" %>
-    <%= f.text_field :title, reqired: true%>
+<div class="row mb-3">
+  <%= f.label :title, ta_t("form.title"), class: "col-2 col-form-label" %>
+  <div class="col-3">
+    <%= f.text_field :title, reqired: true, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :description, ta_t("form.description"), style: "display: block" %>
-    <%= f.text_area  :description %>
+<div class="row mb-3">
+  <%= f.label :description, ta_t("form.description"), class: "col-2 col-form-label" %>
+  <div class="col-3">
+    <%= f.text_area  :description, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :ended_at, ta_t("form.ended_at"), style: "display: block" %>
-    <%= f.date_field :ended_at %>
+<div class="row mb-3">
+  <%= f.label :ended_at, ta_t("form.ended_at"), class: "col-2 col-form-label" %>
+  <div class="col-3">
+    <%= f.date_field :ended_at, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :status, ta_t("form.status"), style: "display: block" %>
-    <%= f.select :status, Task.statuses.keys.map {|k| [I18n.t("enums.task.status.#{k}"), k]} %>
+<div class="row mb-3">
+  <%= f.label :status, ta_t("form.status"), class: "col-2 col-form-label" %>
+  <div class="col-3">
+    <%= f.select :status, Task.statuses.keys.map {|k| [I18n.t("enums.task.status.#{k}"), k]}, {}, class: "form-select" %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit ta_t("form.submit") %>
+<div class="row mb-3">
+  <div class="col-3">
+    <%= link_to ta_t("form.back"), task_index_path, method: :get, class: "btn m-1 btn-secondary" %>
+    <%= f.submit ta_t("form.submit"), class: "btn btn-primary" %>
   </div>
-
+</div>
 <% end %>
-
-<%= link_to ta_t("form.back"), task_index_path %>
