@@ -1,5 +1,5 @@
-<%= button_to ta_t("btn.new"), new_task_path, method: :get, class: "btn m-2 btn-primary" %>
 <div class="row mb-2">
+  <%= button_to ta_t("btn.new"), new_task_path, method: :get, class: "btn my-2 btn-primary" %>
   <%= search_form_for @q, url: task_index_path do |f| %>
     <%= f.search_field :title_cont, placeholder: ta_t("search.form.title") %>
     <%= f.select :status_eq, Task.statuses_i18n.invert.map {|k, v| [k, Task.statuses[v]]} %>
@@ -28,8 +28,8 @@
         <td class="text-center"><%= l(r.ended_at, default: "-") %></td>
         <td class="text-center">
         <div class="d-flex justify-content-center">
-          <%= button_to ta_t("results.body.btn.edit"), edit_task_path(r.id), method: :get, class: "btn m-1 btn-danger" %>
-          <%= button_to ta_t("results.body.btn.destroy"), task_path(r.id), method: :delete, class: "btn m-1 btn-danger" %>
+          <%= button_to ta_t("results.body.btn.edit"), edit_task_path(r.id), method: :get, class: "btn btn-sm mx-1 btn-outline-success" %>
+          <%= button_to ta_t("results.body.btn.destroy"), task_path(r.id), method: :delete, class: "btn btn-sm mx-1 btn-outline-danger" %>
         </div>
         </td>
       </tr>
