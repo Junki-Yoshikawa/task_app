@@ -85,3 +85,6 @@ gem 'kaminari'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 gem 'bootstrap', '~> 5.0.2'
 gem 'jquery-rails'
+
+#2023/05/15 Add devise.
+gem 'devise'

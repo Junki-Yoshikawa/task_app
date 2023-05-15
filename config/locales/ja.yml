@@ -31,6 +31,9 @@
 
 ja:
   labels:
+    header:
+      title: タスク管理
+      logout: ログアウト
     task: 
       index:
         title: タスク一覧
@@ -51,10 +54,6 @@ ja:
             btn: 
               edit: 編集
               destroy: 削除
-        notice:
-          new: タスクを作成しました。
-          edit: タスクを更新しました。
-          destroy: タスクを削除しました。
       new: &new
         title: タスク作成
         form:
@@ -66,6 +65,8 @@ ja:
           back: 戻る
       create:
         <<: *new
+        notice:
+          new: タスクを作成しました。
       show: 
         title: タスク詳細
         form:
@@ -87,6 +88,35 @@ ja:
           back: 戻る
       update:
         <<: *edit
+        notice:
+          edit: タスクを更新しました。
+      destroy:
+        notice:
+            destroy: タスクを削除しました。
+    registrations:
+      new: &new
+        title: ユーザー登録
+        form:
+          name: 氏名
+          email: Eメール
+          password: パスワード
+          password_confirmation: 確認用
+          submit: 登録
+        link:
+          login: ログイン
+      create:
+        <<: *new
+    sessions:
+      new:
+        title: ログイン
+        form:
+          email: Eメール
+          password: パスワード
+          remember_me: パスワードを保存
+          submit: ログイン
+        link:
+          signup: ユーザー登録
+          forget_your_password: パスワード再発行
   enums: 
     task:
       status:

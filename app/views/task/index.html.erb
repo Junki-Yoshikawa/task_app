@@ -1,4 +1,3 @@
-<p class="h1"><%= ta_t("title") %></p>
 <%= button_to ta_t("btn.new"), new_task_path, method: :get, class: "btn m-2 btn-primary" %>
 <div class="row mb-2">
   <%= search_form_for @q, url: task_index_path do |f| %>

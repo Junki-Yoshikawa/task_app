@@ -1,6 +1,43 @@
-<p class="h1"><%= ta_t("title") %></p>
-<%= form_for @task, url: task_path, html: {class: "row"} do |f| %>
+<%= form_for @task, url: task_path, html: {class: "card col-6 mt-5 mx-auto"} do |f| %>
+  <div class="card-header">
+    <h2 class="text-center" ><%= ta_t("title") %></h2>
+  </div>
+  <div class="card-body">
+    <div class="row mb-3">
+      <%= f.label :title, ta_t("form.title"), class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.text_field :title, reqired: true, class: "form-control" %>
+      </div>
+    </div>
 
+    <div class="row mb-3">
+      <%= f.label :description, ta_t("form.description"), class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.text_area  :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :ended_at, ta_t("form.ended_at"), class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.date_field :ended_at, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :status, ta_t("form.status"), class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.select :status, Task.statuses.keys.map {|k| [I18n.t("enums.task.status.#{k}"), k]}, {}, class: "form-select" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12 text-center">
+        <%= link_to ta_t("form.back"), task_index_path, method: :get, class: "btn m-1 btn-secondary py-2 px-5" %>
+        <%= f.submit ta_t("form.submit"), class: "btn btn-primary py-2 px-5" %>
+      </div>
+    </div>
+  </div>
   <% if @task.errors.any? %>
     <div style="color: red">
       <ul>
@@ -10,39 +47,4 @@
       </ul>
     </div>
   <% end %>
-
-<div class="row mb-3">
-  <%= f.label :title, ta_t("form.title"), class: "col-2 col-form-label" %>
-  <div class="col-3">
-    <%= f.text_field :title, reqired: true, class: "form-control" %>
-  </div>
-</div>
-
-<div class="row mb-3">
-  <%= f.label :description, ta_t("form.description"), class: "col-2 col-form-label" %>
-  <div class="col-3">
-    <%= f.text_area  :description, class: "form-control" %>
-  </div>
-</div>
-
-<div class="row mb-3">
-  <%= f.label :ended_at, ta_t("form.ended_at"), class: "col-2 col-form-label" %>
-  <div class="col-3">
-    <%= f.date_field :ended_at, class: "form-control" %>
-  </div>
-</div>
-
-<div class="row mb-3">
-  <%= f.label :status, ta_t("form.status"), class: "col-2 col-form-label" %>
-  <div class="col-3">
-    <%= f.select :status, Task.statuses.keys.map {|k| [I18n.t("enums.task.status.#{k}"), k]}, {}, class: "form-select" %>
-  </div>
-</div>
-
-<div class="row mb-3">
-  <div class="col-3">
-    <%= link_to ta_t("form.back"), task_index_path, method: :get, class: "btn m-1 btn-secondary" %>
-    <%= f.submit ta_t("form.submit"), class: "btn btn-primary" %>
-  </div>
-</div>
 <% end %>

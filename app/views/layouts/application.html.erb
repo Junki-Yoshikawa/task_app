@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TaskApp</title>
+    <title><%= ta_t("title") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +12,7 @@
 
   <body>
     <div  class="container">
+      <%= render partial: 'layouts/header' %>
       <%= yield %>
     </div>
   </body>
