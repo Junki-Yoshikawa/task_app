@@ -1,4 +1,5 @@
 class TaskController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_task, only: %i[ show edit update destroy ]
   before_action :set_q, only: %i[ index ]
 
@@ -17,11 +18,11 @@ class TaskController < ApplicationController
     @task = Task.new(task_params)
 
     # TODO: ユーザーIDはセッションから取得する
-    @task.user_id = 0
+    @task.user_id = current_user.id
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_index_url, notice: "new" }
+        format.html { redirect_to task_index_url, notice: ta_t("notice.new") }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -34,7 +35,7 @@ class TaskController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_index_url, notice: "edit" }
+        format.html { redirect_to task_index_url, notice: ta_t("notice.edit") }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -44,7 +45,7 @@ class TaskController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to task_index_url, notice: "destroy" }
+      format.html { redirect_to task_index_url, notice: ta_t("notice.destroy") }
     end
   end
 
