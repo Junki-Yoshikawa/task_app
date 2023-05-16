@@ -4,7 +4,7 @@ class TaskController < ApplicationController
   before_action :set_q, only: %i[ index ]
 
   def index
-    @results = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
+    @results = @q.result.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -55,6 +55,11 @@ class TaskController < ApplicationController
     end
 
     def set_q
+      if params[:q] == nil
+        params[:q] = {:user_id_eq => current_user.id}
+      else
+        params[:q][:user_id_eq] = current_user.id
+      end
       @q = Task.ransack(params[:q])
     end
 
