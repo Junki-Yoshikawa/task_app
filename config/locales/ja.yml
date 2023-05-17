@@ -32,8 +32,75 @@
 ja:
   labels:
     header:
-      title: タスク管理
+      title:
+        task: タスク管理
+        user: ユーザー管理
       logout: ログアウト
+    user: 
+      index:
+        title: ユーザー一覧
+        btn:
+          new: ユーザー登録
+        search:
+          form:
+            name: 氏名
+            email: Eメール
+            submit: 検索
+        results: 
+          header:
+            name: 氏名
+            email: Eメール
+            task_count: タスク件数
+            is_admin: 管理者
+            created_at: 登録日
+            action: 操作
+          body:
+            is_admin:
+              y: はい
+              n: いいえ
+            btn: 
+              edit: 編集
+              destroy: 削除
+      new: &new
+        title: ユーザー登録
+        form:
+          name: 氏名
+          email: Eメール
+          password: パスワード
+          password_confirmation: 確認用
+          is_admin: 管理者
+          submit: 保存
+          back: 戻る
+      create:
+        <<: *new
+        notice:
+          new: ユーザーを登録しました。
+      show: 
+        title: ユーザー詳細
+        form:
+          name: 氏名
+          email: Eメール
+        btn:
+          edit: 編集
+          back: 戻る
+      edit: &edit
+        title: ユーザー編集
+        form:
+          name: 氏名
+          email: Eメール
+          password: パスワード
+          password_confirmation: 確認用
+          submit: 保存
+          back: 戻る
+      update:
+        <<: *edit
+        notice:
+          edit: ユーザーを更新しました。
+      destroy:
+        alert: 
+          destroy: 管理者が2人以下になるため、ユーザーを削除できません。
+        notice:
+          destroy: ユーザーを削除しました。
     task: 
       index:
         title: タスク一覧
