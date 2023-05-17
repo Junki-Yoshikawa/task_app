@@ -1,0 +1,51 @@
+<div class="row mb-2">
+  <%= button_to ta_t("btn.new"), new_admin_user_path, method: :get, class: "btn my-2 btn-primary" %>
+  <%= search_form_for @q, url: admin_user_index_path do |f| %>
+    <%= f.search_field :name_cont, placeholder: ta_t("search.form.name") %>
+    <%= f.search_field :email_cont, placeholder: ta_t("search.form.email") %>
+    <%= f.submit ta_t("search.form.submit") %>
+  <% end %>
+</div>
+<div class="row mb-2">
+  <table class="table table-bordere table-striped table-hover table-responsive align-middle">
+    <thead class="table-light">
+      <tr class="text-center">
+        <th scope="col" class="w-no"><%= sort_link(@q, :id, "#")%></th>
+        <th scope="col"><%= sort_link(@q, :name, ta_t("results.header.name"))%></th>
+        <th scope="col"><%= sort_link(@q, :email, ta_t("results.header.email")) %></th>
+        <th scope="col"><%= sort_link(@q, :email, ta_t("results.header.task_count")) %></th>
+        <th scope="col"><%= sort_link(@q, :email, ta_t("results.header.is_admin")) %></th>
+        <th scope="col" class="w-date"><%= sort_link(@q, :created_at, ta_t("results.header.created_at")) %></th>
+        <th scope="col" class="w-button"><%= ta_t("results.header.action") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |r| %>
+      <tr>
+        <td class="text-center"><%= r.id %></td>
+        <td><%= link_to r.name, admin_user_path(r.id) %></td>
+        <td><%= r.email %></td>
+        <td class="text-end"><%= r.tasks.size %></td>
+        <td class="text-center">
+          <% if r.is_admin %>
+            <%= ta_t("results.body.is_admin.y") %>
+          <% else %>
+            <%= ta_t("results.body.is_admin.n") %>
+          <% end %>
+        </td>
+        <td class="text-center"><%= l(r.created_at) %></td>
+        <td class="text-center">
+        <div class="d-flex justify-content-center">
+          <%= button_to ta_t("results.body.btn.edit"), edit_admin_user_path(r.id), method: :get, class: "btn btn-sm mx-1 btn-outline-success" %>
+          <% if r.id != current_user.id %>
+            <%= button_to ta_t("results.body.btn.destroy"), admin_user_path(r.id), method: :delete, class: "btn btn-sm mx-1 btn-outline-danger" %>
+          <% end %>
+        </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @results, theme: 'bootstrap-5' %>
+<%= render partial: 'layouts/flash' %>

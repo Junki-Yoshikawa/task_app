@@ -55,6 +55,12 @@ class TaskController < ApplicationController
     end
 
     def set_q
+      # ログインユーザーのユーザーIDを検索条件に含む
+      if params[:q] == nil
+        params[:q] = {:user_id_eq => current_user.id}
+      else
+        params[:q][:user_id_eq] = current_user.id
+      end
       @q = Task.ransack(params[:q])
     end
 

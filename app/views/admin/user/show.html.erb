@@ -1,0 +1,36 @@
+<%= form_for @user, url: admin_user_index_path, html: {class: "card col-6 mt-5 mx-auto"} do |f| %>
+  <div class="card-header">
+    <h2 class="text-center" ><%= ta_t("title") %></h2>
+  </div>
+  <div class="card-body">
+    <div class="row mb-3">
+      <%= f.label :name, ta_t("form.name"), class: "col-sm-12 col-md-2 col-form-label" %>
+      <div class="col-sm-12 col-md-10">
+        <%= f.text_field :name, reqired: true, autofocus: true, class: "form-control", readonly: true %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :email, ta_t("form.email"), class: "col-sm-12 col-md-2 col-form-label" %>
+      <div class="col-sm-12 col-md-10">
+        <%= f.email_field :email, reqired: true, autocomplete: "email", class: "form-control", readonly: true %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-12 col-md-12 text-center">
+        <%= link_to ta_t("btn.back"), admin_user_index_path, method: :get, class: "btn m-1 btn-secondary py-2 px-5" %>
+        <%= link_to ta_t("btn.edit"), edit_admin_user_path(@user.id), method: :get, class: "btn m-1 btn-primary py-2 px-5" %>
+      </div>
+    </div>
+  </div>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

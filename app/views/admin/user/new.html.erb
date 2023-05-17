@@ -1,0 +1,57 @@
+<%= form_for @user, url: admin_user_index_path, html: {class: "card col-6 mt-5 mx-auto"} do |f| %>
+  <div class="card-header">
+    <h2 class="text-center" ><%= ta_t("title") %></h2>
+  </div>
+  <div class="card-body">
+    <div class="row mb-3">
+      <%= f.label :name, ta_t("form.name"), class: "col-sm-12 col-md-2 col-form-label" %>
+      <div class="col-sm-12 col-md-10">
+        <%= f.text_field :name, reqired: true, autofocus: true, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :email, ta_t("form.email"), class: "col-sm-12 col-md-2 col-form-label" %>
+      <div class="col-sm-12 col-md-10">
+        <%= f.email_field :email, reqired: true, autocomplete: "email", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :password, ta_t("form.password"), class: "col-sm-12 col-md-2 col-form-label" %>
+      <div class="col-sm-12 col-md-10">
+        <%= f.password_field :password, reqired: true, autocomplete: "new-password", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :password_confirmation, ta_t("form.password_confirmation"), class: "col-sm-12 col-md-2 col-form-label" %>
+      <div class="col-sm-12 col-md-10">
+        <%= f.password_field :password_confirmation, reqired: true, autocomplete: "new-password", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :is_admin, ta_t("form.is_admin"), class: "col-sm-12 col-md-2 col-form-label" %>
+      <div class="col-sm-12 col-md-10 d-flex align-items-center">
+        <div class="form-check form-switch">
+          <%= f.check_box :is_admin, class: "form-check-input" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3 text-center">
+      <div class="col-sm-12 col-md-12">
+        <%= f.submit ta_t("form.submit"), class: "btn btn-primary py-2 px-5" %>
+      </div>
+    </div>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
+
+  # user
   devise_for :users, skip: :all
   devise_scope :user do
     get 'login' => 'devise/sessions#new', as: :new_user_session
@@ -17,10 +23,14 @@ Rails.application.routes.draw do
     patch 'password' => 'devise/passwords#update'
     put 'password' => 'devise/passwords#update', as: :update_user_password
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # admin
+  namespace :admin do
+    get '/', to: 'user#index'
+    resources :user
+  end
+
+  # Task
   get '/', to: 'task#index'
   resources :task do
     collection do
@@ -28,4 +38,5 @@ Rails.application.routes.draw do
     end
   end
   
+  get '*path', controller: 'application', action: 'render_404'
 end
