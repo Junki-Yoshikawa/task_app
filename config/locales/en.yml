@@ -32,8 +32,75 @@
 en:
   labels:
     header:
-      title: Tasks
+      title:
+        task: Tasks
+        user: Users
       logout: Logout
+    user: 
+      index:
+        title: Users
+        btn:
+          new: New User
+        search:
+          form:
+            name: Name
+            email: Email
+            submit: Submit
+        results: 
+          header:
+            name: Name
+            email: Email
+            task_count: TaskCount
+            is_admin: Admin
+            created_at: createdAt
+            action: Action
+          body:
+            is_admin:
+              y: Y
+              n: N
+            btn: 
+              edit: Edit
+              destroy: Delete
+      new: &new
+        title: New User
+        form:
+          name: Name
+          email: Email
+          password: Password
+          password_confirmation: Confirmation
+          is_admin: Admin
+          submit: Submit
+          back: Back
+      create:
+        <<: *new
+        notice:
+          new: New User
+      show: 
+        title: User Detail
+        form:
+          name: Name
+          email: Email
+        btn:
+          edit: Edit
+          back: Back
+      edit: &edit
+        title: User Edit
+        form:
+          name: Name
+          email: Email
+          password: Password
+          password_confirmation: Confirmation
+          submit: Submit
+          back: Back
+      update:
+        <<: *edit
+        notice:
+          edit: Edit User
+      destroy:
+        alert: 
+          destroy: Not Delete User
+        notice:
+          destroy: Delete User
     task: 
       index:
         title: Tasks
@@ -47,6 +114,7 @@ en:
           header:
             created_at: CreateAt
             title: Title
+            label: Label
             status: Status
             ended_at: EndedAt
             action: Action
@@ -54,8 +122,6 @@ en:
             btn: 
               edit: Edit
               destroy: Delete
-        notice:
-          destroy: Deleted a task.
       new: &new
         title: New Task
         form:
@@ -63,6 +129,7 @@ en:
           description: Description
           ended_at: EndedAt
           status: Status
+          label: Label
           submit: Save
           back: Back
       create:

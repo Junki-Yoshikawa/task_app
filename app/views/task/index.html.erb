@@ -13,6 +13,7 @@
         <th scope="col" class="w-no"><%= sort_link(@q, :id, "#")%></th>
         <th scope="col" class="w-date"><%= sort_link(@q, :created_at, ta_t("results.header.created_at"))%></th>
         <th scope="col"><%= sort_link(@q, :title, ta_t("results.header.title")) %></th>
+        <th scope="col"><%= sort_link(@q, :status, ta_t("results.header.label")) %></th>
         <th scope="col" class="w-status"><%= sort_link(@q, :status, ta_t("results.header.status")) %></th>
         <th scope="col" class="w-date"><%= sort_link(@q, :ended_at, ta_t("results.header.ended_at")) %></th>
         <th scope="col" class="w-button"><%= ta_t("results.header.action") %></th>
@@ -24,6 +25,11 @@
         <td class="text-center"><%= r.id %></td>
         <td><%= l(r.created_at) %></td>
         <td><%= link_to r.title, task_path(r.id) %></td>
+        <td>
+          <% r.task_labels.each do |tl| %>
+            <span class="badge bg-secondary"><%= tl.label.name %></span>
+          <% end %>
+        </td>
         <td class="text-center"><%= I18n.t("enums.task.status.#{r.status}") %></td>
         <td class="text-center"><%= l(r.ended_at, default: "-") %></td>
         <td class="text-center">
