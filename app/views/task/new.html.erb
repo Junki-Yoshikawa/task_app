@@ -1,0 +1,36 @@
+<h1>タスク作成</h1>
+<%= form_for @task, url: task_index_path do |f| %>
+
+  <% if @task.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% @task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "タイトル", style: "display: block" %>
+    <%= f.text_field :title, reqired: true%>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "説明", style: "display: block" %>
+    <%= f.text_area  :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ended_at, "終了期限", style: "display: block" %>
+    <%= f.date_field :ended_at %>
+  </div>
+  
+
+  <div class="actions">
+    <%= f.submit "保存" %>
+  </div>
+
+<% end %>
+
+<%= link_to "戻る", task_index_path %>

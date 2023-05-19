@@ -1,0 +1,23 @@
+<h1>タスク詳細</h1>
+<%= form_for @task, url: task_index_path do |f| %>
+
+  <div class="field">
+    <%= f.label :title, "タイトル", style: "display: block" %>
+    <%= f.text_field :title, reqired: true, readonly: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "説明", style: "display: block" %>
+    <%= f.text_area  :description, readonly: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ended_at, "終了期限", style: "display: block" %>
+    <%= f.date_field :ended_at, readonly: true %>
+  </div>
+  
+<% end %>
+
+<%= button_to '編集', edit_task_path(@task.id), method: :get %>
+
+<%= link_to "戻る", task_index_path %>
