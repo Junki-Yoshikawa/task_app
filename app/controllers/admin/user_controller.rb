@@ -74,7 +74,8 @@ class Admin::UserController < ApplicationController
     def admin_authenticate_user!
       authenticate_user!
       unless current_user.is_admin
-        redirect_to task_index_url
+        routing_error
+        # redirect_to task_index_url
       end
     end
 end

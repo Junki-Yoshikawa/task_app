@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :labels, dependent: :destroy
   has_many :tasks, dependent: :destroy
   
   # Include default devise modules. Others available are:

@@ -114,6 +114,7 @@ ja:
           header:
             created_at: 登録日
             title: タイトル
+            label: ラベル
             status: ステータス
             ended_at: 終了期限
             action: 操作
@@ -128,6 +129,7 @@ ja:
           description: 説明
           ended_at: 終了期限
           status: ステータス
+          label: ラベル
           submit: 保存
           back: 戻る
       create:

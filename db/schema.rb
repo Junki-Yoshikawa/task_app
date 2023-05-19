@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_15_100809) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_075727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "labels", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", limit: 256, comment: "ラベル名"
+    t.string "color", limit: 256, comment: "色"
+    t.datetime "created_at", comment: "登録日時"
+    t.datetime "modified_at", comment: "更新日時"
+    t.index ["user_id"], name: "index_labels_on_user_id"
+  end
+
+  create_table "task_labels", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["label_id"], name: "index_task_labels_on_label_id"
+    t.index ["task_id"], name: "index_task_labels_on_task_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id", null: false, comment: "ユーザーID"
@@ -39,4 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_15_100809) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "labels", "users"
+  add_foreign_key "task_labels", "labels"
+  add_foreign_key "task_labels", "tasks"
 end
