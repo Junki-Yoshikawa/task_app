@@ -6,7 +6,7 @@ class Task < ApplicationRecord
     validates :title, presence: true, length: { maximum: 256 }
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "description", "ended_at", "id", "modified_at", "status", "title", "user_id"]
+        ["status", "title", "user_id"]
     end
 
     def self.ransackable_associations(auth_object = nil)

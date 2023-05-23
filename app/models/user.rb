@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "email", "encrypted_password", "id", "is_admin", "is_delete", "modified_at", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token"]
+    ["email", "name"]
   end
 
   def self.ransackable_associations(auth_object = nil)
