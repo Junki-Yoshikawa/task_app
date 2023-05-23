@@ -30,7 +30,6 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 # Workers do not work on JRuby or Windows (both of which do not support
 # processes).
 #
-
 workers ENV.fetch("WEB_CONCURRENCY") { 4 } if ENV.fetch("RAILS_ENV", "production") == "production"
 
 # Use the `preload_app!` method when specifying a `workers` number.
@@ -39,7 +38,6 @@ workers ENV.fetch("WEB_CONCURRENCY") { 4 } if ENV.fetch("RAILS_ENV", "production
 # process behavior so workers use less memory.
 #
 preload_app! if ENV.fetch("RAILS_ENV", "production") == "production"
-
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart

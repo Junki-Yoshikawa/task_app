@@ -30,4 +30,189 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  labels:
+    header:
+      title:
+        task: Tasks
+        user: Users
+      logout: Logout
+    user: 
+      index:
+        title: Users
+        btn:
+          new: New User
+        search:
+          form:
+            name: Name
+            email: Email
+            submit: Submit
+        results: 
+          header:
+            name: Name
+            email: Email
+            task_count: TaskCount
+            is_admin: Admin
+            created_at: createdAt
+            action: Action
+          body:
+            is_admin:
+              y: Y
+              n: N
+            btn: 
+              edit: Edit
+              destroy: Delete
+      new: &new
+        title: New User
+        form:
+          name: Name
+          email: Email
+          password: Password
+          password_confirmation: Confirmation
+          is_admin: Admin
+          submit: Submit
+          back: Back
+      create:
+        <<: *new
+        notice:
+          new: New User
+      show: 
+        title: User Detail
+        form:
+          name: Name
+          email: Email
+        btn:
+          edit: Edit
+          back: Back
+      edit: &edit
+        title: User Edit
+        form:
+          name: Name
+          email: Email
+          password: Password
+          password_confirmation: Confirmation
+          submit: Submit
+          back: Back
+      update:
+        <<: *edit
+        notice:
+          edit: Edit User
+      destroy:
+        alert: 
+          destroy: Not Delete User
+        notice:
+          destroy: Delete User
+    task: 
+      index:
+        title: Tasks
+        btn:
+          new: New
+        search:
+          form:
+            title: Title
+            submit: Search
+        results: 
+          header:
+            created_at: CreateAt
+            title: Title
+            label: Label
+            status: Status
+            ended_at: EndedAt
+            action: Action
+          body:
+            btn: 
+              edit: Edit
+              destroy: Delete
+      new: &new
+        title: New Task
+        form:
+          title: Title
+          description: Description
+          ended_at: EndedAt
+          status: Status
+          label: Label
+          submit: Save
+          back: Back
+      create:
+        <<: *new
+        notice:
+          new: Task created.
+      show: 
+        title: Task Detail
+        form:
+          title: Title
+          description: Description
+          ended_at: EndedAt
+          status: Status
+        btn:
+          edit: Edit
+          back: Back
+      edit: &edit
+        title: Task Edit
+        form:
+          title: Title
+          description: Description
+          ended_at: EndedAt
+          status: Status
+          submit: Save
+          back: Back
+      update:
+        <<: *edit
+        notice:
+          edit: A task was updated.
+      destroy:
+        notice:
+          destroy: Deleted a task.
+    registrations:
+      new: &new
+        title: User Registration
+        form:
+          name: Name
+          email: EMail
+          password: Password
+          password_confirmation: Confirm
+          submit: Submit
+        link:
+          login: User Registration
+      create:
+        <<: *new
+    sessions:
+      new:
+        title: Login
+        form:
+          email: EMail
+          password: Password
+          remember_me: Remember me
+          submit: Submit
+        link:
+          signup: User Registration
+          forget_your_password: Forget your password
+  enums: 
+    task:
+      status:
+        ready: Ready
+        running: Running
+        finished: Finished
+  date:
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y/%m/%d(%a)'
+      short: ! '%m/%d'
+  time:
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y/%m/%d(%a)'
+      short: ! '%m/%d'
+  activerecord:
+    models:
+      task: Taks
+    attributes:
+        task:
+          title: Title
+          description: Description
+  views:
+      pagination:
+        first: First
+        last: Last
+        previous: Prev
+        next: Next
+        truncate: ...

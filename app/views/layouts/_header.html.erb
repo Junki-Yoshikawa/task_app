@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom">
+    <%= link_to header_title, task_index_path, class: "fs-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" %>
+    <div class="col-md-3 text-end">
+      <%= button_to t("labels.header.logout"), destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+    </div>
+  </header>
+<% end %>

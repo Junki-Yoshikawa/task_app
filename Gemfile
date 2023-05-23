@@ -43,6 +43,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem 'pry-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -71,3 +73,19 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# 2023/05/11 Add Ransack.
+gem "ransack"
+
+# 2023/05/13 Add enum_help.
+gem "enum_help"
+
+# 2023/05/14 Add kaminari.
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+gem 'bootstrap', '~> 5.0.2'
+gem 'jquery-rails'
+gem 'bootstrap-select-rails'
+
+#2023/05/15 Add devise.
+gem 'devise'
